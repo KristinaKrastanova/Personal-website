@@ -1,0 +1,53 @@
+﻿<head>
+    <!-- Plugins -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="~/Content/forum-style.css" />
+
+    <!--JS-->
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+
+</head>
+
+<div class="recent-comments" id="recent-comments">
+
+    @foreach (var entry in ViewBag.Entries)
+    {
+        <div class="current-comment" id="current-comment">
+            <header>
+                <h4>@entry.Comment</h4>
+            </header>
+            <p>
+                User <b>@entry.Name</b> said on <b>@entry.SentDate.ToLongDateString()</b>
+            </p>
+            <br />
+
+            <p>
+
+                @if ((bool)ViewData["hasPermission"])
+                {
+
+                <div class="col">
+                    @using (Ajax.BeginForm("Delete", "Forum", new AjaxOptions { HttpMethod = "POST", OnSuccess = "OnSuccess"}))
+                    {
+                        <button class="comment-delete" name="Id" value="@entry.Id" type="submit">Delete</button>
+                    }
+                    </div>
+                }
+            </p>
+            <hr />
+         </div>
+         }
+</div>
+
+<script>
+    function OnSuccess(response) {
+        if (response) {
+            $("#recent-comments").load(" #recent-comments > *");
+        } else {
+            alert("You don't have permission to delete this comment!");
+        }
+    }
+</script>

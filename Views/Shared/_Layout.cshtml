@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="~/Content/nav-style.css" />
+    <!-- Custom JS -->
+    <script src="~/Scripts/main.js" type="text/javascript" defer></script>
+</head>
+<body>
+    <!--Navigation-->
+    <nav>
+        <div class="inner-width">
+            <a href="#" class="logo"><img src="~/Content/img/logo.png" alt="" /></a>
+            <i class="menu-toggle-btn fas fa-bars"></i>
+            <div class="navigation-menu">
+                <ul class="#">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Gallery", "Gallery", "Home")</li>
+                    <li>@Html.ActionLink("Download", "Download", "Home")</li>
+                    <li>@Html.ActionLink("Forum", "Index", "Forum")</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </nav>
+  
+        @RenderBody()
+
+        <hr />
+        <!--Footer-->
+        <footer class="footer">
+            <hr size="3" , color=grey>
+            <div class="sitemap margins">
+                <ul class="#">
+                    <li>
+                        <a href="./index.html"><i class="fas fa-home home"></i>Home</a>
+                    </li>
+                    <li>
+                        <a href="./gallery.html"><i class="fas fa-images"></i>Gallery</a>
+                    </li>
+                    <li>
+                        <a href="./download.html"><i class="fab fa-buffer works"></i>Download</a>
+                    </li>
+                    <li>
+                        <a href="./forum.html"><i class="fas fa-users team"></i>Forum</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fas fa-headset contact"></i>Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <hr size="3" , color=grey>
+            <div class="margins">Copyright © 2021 Kristina Krastanova. All Rights Reserved.</div>
+            <div class="margins">
+                This site is for personal use and portfolio representation.
+            </div>
+            <hr size="3" , color=grey>
+        </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

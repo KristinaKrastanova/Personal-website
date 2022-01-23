@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<head>
+    <title>Forum</title>
+    <link rel="icon" href="~/Content/img//kkk.png" type="image/icon type">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+    <!-- Plugins -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="~/Content/forum-style.css" />
+
+</head>
+
+@if (@Request.IsAuthenticated)
+{
+    <div class="comment-container">
+        <h3 class="comment-container-title">Comments</h3>
+        <div class="comment-elements-container">
+            @Html.Action("Show")
+            <div class="flex-1">
+                <h3 class="comment-author">@User.Identity.Name</h3>
+                <form action="" class="comment-form" method="post">
+                    <textarea placeholder="Add a comment" class="comment-input" name="Comment" rows="10"></textarea>
+                    <button class="comment-submit" type="submit">Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="alert-warning">
+        <strong>Warning!</strong> Log in to use the forum or register if you still don't have an account.
+    </div>
+}

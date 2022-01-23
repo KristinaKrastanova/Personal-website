@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Download";
+}
+
+<head>
+    <title>Download</title>
+    <link rel="icon" href="~/Content/img//kkk.png" type="image/icon type">
+
+    <!-- Plugins -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="~/Content/download-style.css" />
+</head>
+<body>
+    <div class="flex-wrapper">
+        <div class="content">
+            <h1>Would you like to check out my CV?</h1>
+            <p>Feel free to download it by clicking the file type below which you prefer:</p>
+
+            <div class="downloadanble">
+                <a class="cvdw" href="~/Content/files/CV_Kristina_Krastanova.pdf" download>
+                    <img src="~/Content/img/pdf.png"
+                         style="width:150px;height:200px;">
+                    <figcaption> download CV in PDF</figcaption>
+                </a>
+                <a class="cvdw" href="~/Content/files/CV_Kristina_Krastanova.docx" download>
+                    <img src="~/Content/img/doc.png"
+                         style="width:150px;height:200px;">
+                    <figcaption> download CV in word</figcaption>
+                </a>
+            </div>
+
+            <p class="gtp">
+                Are you interested in checking out my project? Click <a class="gtlink"
+                                                                        href=https://github.com/KristinaKrastanova> &nbsp;here&nbsp; </a> to visit my public GitHub repositories.
+            </p>
+
+        </div>
+    </div>
+</body>
+
+
