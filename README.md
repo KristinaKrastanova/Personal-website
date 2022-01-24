@@ -7,6 +7,8 @@ Features:
 - gallery with fillter buttons
 - download a document in pdf or docx
 - forum 
+
    comments are sorted by post date
+  
    delete a comment functionallity
 - registration/sign in
